@@ -1,0 +1,23 @@
+.user-avatar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+  
+    &__circle {
+      background-color: #e6f7ff;
+      border: 2px solid #1890ff;
+      transition: border-color 0.2s ease;
+  
+      &:hover {
+        border-color: #40a9ff;
+      }
+    }
+  
+    &__name {
+      font-size: 14px;
+      color: #333;
+      font-weight: 500;
+    }
+  }
+  

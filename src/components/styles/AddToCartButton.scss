@@ -1,0 +1,16 @@
+.add-to-cart-btn {
+  border-radius: 8px;
+  padding: 0 20px;
+  font-size: 16px;
+  font-weight: 600;
+  background: linear-gradient(90deg, #c89d7c, #9a6b4f);
+  border: none;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: linear-gradient(90deg, #b5896b, #855940);
+    transform: translateY(-2px);
+  }
+}

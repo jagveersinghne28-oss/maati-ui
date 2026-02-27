@@ -1,0 +1,173 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at center, #2c2c2c, #000);
+  color: white;
+}
+
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  height: 50px;
+  background: #111;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border-bottom: 1px solid #333;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+}
+
+.logo-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+
+.menu button {
+  background: none;
+  color: #ccc;
+  border: none;
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+.menu button:hover {
+  color: white;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+}
+
+.wheel-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wheel-wrapper {
+  position: relative;
+}
+
+.pointer {
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  font-size: 30px;
+  color: red;
+  transform: translateY(-50%);
+}
+
+.side-panel {
+  width: 300px;
+  background: #111;
+  border-left: 1px solid #333;
+  padding: 10px;
+}
+
+.tabs button {
+  width: 50%;
+  background: none;
+  border: none;
+  color: #aaa;
+  padding: 8px;
+}
+
+.tabs .active {
+  color: white;
+  border-bottom: 2px solid #1e88e5;
+}
+
+.actions button {
+  margin: 5px;
+  width: 45%;
+}
+
+textarea {
+  width: 100%;
+  height: 250px;
+  background: #000;
+  color: white;
+  border: 1px solid #333;
+  padding: 8px;
+}
+
+.add-wheel {
+  width: 100%;
+  margin-top: 10px;
+  background: #1e88e5;
+  border: none;
+  padding: 10px;
+  color: white;
+}
+
+/* Disable all scrollbars */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Remove scrollbar visually (extra safety) */
+* {
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE & Edge */
+}
+
+*::-webkit-scrollbar {
+  display: none;                /* Chrome, Safari */
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  background: #111;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  min-width: 300px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+.modal h2 {
+  margin-bottom: 15px;
+}
+
+.winner-name {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ff1744;
+  margin-bottom: 20px;
+}
+
+.modal button {
+  padding: 8px 20px;
+  background: #1e88e5;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
