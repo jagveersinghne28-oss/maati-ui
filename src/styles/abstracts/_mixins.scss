@@ -1,0 +1,85 @@
+@use 'variables' as *;
+@use 'breakpoints' as *;
+
+@mixin container {
+  width: 100%;
+  max-width: $container-max;
+  margin: 0 auto;
+  padding-left: $container-pad;
+  padding-right: $container-pad;
+  @include mobile {
+    padding-left: $container-pad-mobile;
+    padding-right: $container-pad-mobile;
+  }
+}
+
+@mixin section {
+  padding-top: $space-9;
+  padding-bottom: $space-9;
+  @include mobile {
+    padding-top: $space-7;
+    padding-bottom: $space-7;
+  }
+}
+
+@mixin heading-display {
+  font-family: $font-serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+}
+
+@mixin eyebrow {
+  font-family: $font-sans;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: $earth-brown;
+  font-weight: 500;
+}
+
+@mixin btn-luxury {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 36px;
+  font-family: $font-sans;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+  background: $text-dark;
+  color: $cream-white;
+  border: 1px solid $text-dark;
+  cursor: pointer;
+  transition: all $dur-med $ease-luxe;
+  text-decoration: none;
+  &:hover {
+    background: $earth-brown;
+    border-color: $earth-brown;
+    color: $cream-white;
+  }
+}
+
+@mixin btn-outline {
+  @include btn-luxury;
+  background: transparent;
+  color: $text-dark;
+  &:hover { background: $text-dark; color: $cream-white; }
+}
+
+@mixin hover-lift {
+  transition: transform $dur-med $ease-soft;
+  &:hover { transform: translateY(-4px); }
+}
+
+@mixin image-zoom {
+  overflow: hidden;
+  img { transition: transform 1.2s $ease-luxe; will-change: transform; }
+  &:hover img { transform: scale(1.06); }
+}
+
+@mixin fade-in-up {
+  animation: fadeInUp 0.9s $ease-luxe both;
+}

@@ -1,0 +1,17 @@
+$bp-xs: 480px;
+$bp-sm: 640px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+$bp-2xl: 1440px;
+
+@mixin up($bp) {
+  @media (min-width: $bp) { @content; }
+}
+@mixin down($bp) {
+  @media (max-width: ($bp - 1px)) { @content; }
+}
+
+@mixin mobile { @media (max-width: 767px) { @content; } }
+@mixin tablet { @media (min-width: 768px) and (max-width: 1023px) { @content; } }
+@mixin desktop { @media (min-width: 1024px) { @content; } }

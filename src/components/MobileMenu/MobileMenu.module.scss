@@ -1,0 +1,6 @@
+@use '../../styles/abstracts/variables' as *;
+
+.logo { font-family: $font-serif; font-size: 24px; letter-spacing: 0.12em; }
+.nav { display: flex; flex-direction: column; padding: $space-3 0; }
+.link { padding: 18px $space-5; font-family: $font-serif; font-size: 22px; border-bottom: 1px solid $border; color: $text-dark; transition: all $dur-fast; &:hover { background: $soft-sand; color: $earth-brown; padding-left: $space-6; } }
+.foot { padding: $space-5; border-top: 1px solid $border; small { display: block; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: $earth-brown; margin-bottom: 8px; } a { font-family: $font-serif; font-size: 22px; color: $text-dark; } }

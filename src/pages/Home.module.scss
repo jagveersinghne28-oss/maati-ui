@@ -1,0 +1,116 @@
+@use '../styles/abstracts/variables' as *;
+@use '../styles/abstracts/mixins' as *;
+@use '../styles/abstracts/breakpoints' as *;
+
+// Hero
+.hero { position: relative; height: calc(100vh - 124px); min-height: 600px; max-height: 820px; overflow: hidden; background: $soft-sand;
+  @include mobile { height: 90vh; min-height: 540px; }
+}
+.heroSwiper, :global(.heroSwiper) { width: 100%; height: 100%; }
+.slide { position: relative; width: 100%; height: 100%; }
+.slide img { width: 100%; height: 100%; object-fit: cover; }
+.slide::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,28,28,0.05) 0%, rgba(28,28,28,0.35) 100%); }
+.heroContent { position: absolute; bottom: $space-9; left: 0; right: 0; @include container; color: $cream-white; z-index: 2;
+  @include mobile { bottom: $space-7; }
+}
+.eyebrow { @include eyebrow; color: $clay-beige; margin-bottom: $space-4; }
+.heroTitle { @include heading-display; color: $cream-white; font-size: clamp(48px, 7vw, 96px); max-width: 16ch; margin-bottom: $space-4; }
+.heroSub { color: rgba(248, 245, 241, 0.85); max-width: 480px; margin-bottom: $space-5; font-size: 16px; }
+.btnLight { @include btn-luxury; background: $cream-white; color: $text-dark; border-color: $cream-white; &:hover { background: $clay-beige; border-color: $clay-beige; color: $text-dark; } }
+
+// Section wrappers
+.section { @include section; }
+.sectionHead { @include container; text-align: center; margin-bottom: $space-7; }
+.sectionHead .eyebrow { color: $earth-brown; margin-bottom: $space-3; }
+.sectionHead h2 { margin-bottom: $space-3; }
+.sectionHead p { max-width: 560px; margin: 0 auto; }
+
+// Featured collections
+.featured { @include container; display: grid; grid-template-columns: repeat(4, 1fr); gap: $space-5;
+  @include down($bp-lg) { grid-template-columns: repeat(2, 1fr); }
+  @include mobile { grid-template-columns: 1fr; }
+}
+.featuredCard { position: relative; aspect-ratio: 3/4; overflow: hidden; cursor: pointer; @include image-zoom;
+  img { width: 100%; height: 100%; object-fit: cover; }
+  &::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(28,28,28,0.6) 100%); }
+  .label { position: absolute; bottom: $space-5; left: $space-5; right: $space-5; color: $cream-white; z-index: 2;
+    h4 { font-family: $font-serif; font-size: 28px; color: $cream-white; margin-bottom: 4px; }
+    span { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: $clay-beige; }
+  }
+}
+
+// Craft section
+.craft { @include container; display: grid; grid-template-columns: 1fr 1fr; gap: $space-8; align-items: center;
+  @include down($bp-lg) { grid-template-columns: 1fr; }
+}
+.craftImg { aspect-ratio: 4/5; @include image-zoom; img { width: 100%; height: 100%; object-fit: cover; } }
+.craftText h2 { margin-bottom: $space-4; }
+.craftText p { margin-bottom: $space-4; font-size: 16px; line-height: 1.8; }
+
+// Product grid
+.products { @include container; display: grid; grid-template-columns: repeat(4, 1fr); gap: $space-5 $space-4;
+  @include down($bp-lg) { grid-template-columns: repeat(3, 1fr); }
+  @include down($bp-md) { grid-template-columns: repeat(2, 1fr); }
+}
+
+// Categories strip
+.cats { @include container; display: grid; grid-template-columns: repeat(4, 1fr); gap: $space-5;
+  @include down($bp-md) { grid-template-columns: repeat(2, 1fr); }
+}
+.cat { text-align: center; cursor: pointer;
+  .ring { aspect-ratio: 1/1; border-radius: 999px; overflow: hidden; background: $soft-sand; margin-bottom: $space-3; @include image-zoom; img { width: 100%; height: 100%; object-fit: cover; } }
+  h5 { font-family: $font-serif; font-size: 22px; margin-bottom: 4px; }
+  span { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: $text-muted; }
+}
+
+// Story
+.story { background: $earth-brown; color: $cream-white; padding: $space-10 0;
+  @include mobile { padding: $space-8 0; }
+}
+.storyInner { @include container; display: grid; grid-template-columns: 1fr 1fr; gap: $space-8; align-items: center;
+  @include down($bp-lg) { grid-template-columns: 1fr; }
+}
+.storyText h2 { color: $cream-white; margin-bottom: $space-4; }
+.storyText p { color: rgba(248, 245, 241, 0.8); font-size: 17px; line-height: 1.85; margin-bottom: $space-4; }
+.storyImg { aspect-ratio: 4/5; img { width: 100%; height: 100%; object-fit: cover; } }
+
+// Promo banner
+.promo { @include container; }
+.promoCard { position: relative; aspect-ratio: 21/9; overflow: hidden; @include image-zoom;
+  @include mobile { aspect-ratio: 4/5; }
+  img { width: 100%; height: 100%; object-fit: cover; }
+  &::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(28,28,28,0.55), transparent 60%); }
+  .body { position: absolute; left: $space-8; top: 50%; transform: translateY(-50%); color: $cream-white; max-width: 460px; z-index: 2;
+    @include mobile { left: $space-5; right: $space-5; }
+    h2 { color: $cream-white; margin-bottom: $space-3; }
+    p { color: rgba(248, 245, 241, 0.85); margin-bottom: $space-5; }
+  }
+}
+
+// Insta gallery
+.insta { @include container; display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px;
+  @include down($bp-lg) { grid-template-columns: repeat(3, 1fr); }
+  @include mobile { grid-template-columns: repeat(2, 1fr); }
+}
+.instaItem { aspect-ratio: 1/1; @include image-zoom; img { width: 100%; height: 100%; object-fit: cover; } }
+
+// Testimonials
+.testis { @include container; display: grid; grid-template-columns: repeat(3, 1fr); gap: $space-5;
+  @include down($bp-md) { grid-template-columns: 1fr; }
+}
+.testi { background: $soft-sand; padding: $space-7 $space-5; text-align: center;
+  .quote { font-family: $font-serif; font-size: 22px; line-height: 1.5; color: $text-dark; margin-bottom: $space-5; }
+  .who { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: $earth-brown; }
+}
+
+// Newsletter
+.news { background: $clay-beige; padding: $space-9 0; }
+.newsInner { @include container; text-align: center; max-width: 640px;
+  h2 { margin-bottom: $space-3; }
+  p { color: $text-dark; opacity: 0.7; margin-bottom: $space-5; }
+  form { display: flex; gap: 0; border: 1px solid $text-dark; background: $cream-white;
+    @include mobile { flex-direction: column; }
+  }
+  input { flex: 1; padding: 18px 22px; border: 0; background: transparent; font-size: 14px; outline: none; }
+  button { @include btn-luxury; padding: 18px 36px; }
+}

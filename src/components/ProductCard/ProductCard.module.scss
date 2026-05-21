@@ -1,0 +1,25 @@
+@use '../../styles/abstracts/variables' as *;
+@use '../../styles/abstracts/mixins' as *;
+
+.card { position: relative; display: block; cursor: pointer; }
+.imageWrap { position: relative; aspect-ratio: 4/5; overflow: hidden; background: $soft-sand; margin-bottom: $space-4; }
+.img { width: 100%; height: 100%; object-fit: cover; transition: opacity $dur-slow $ease-luxe, transform 1.2s $ease-luxe; }
+.imgAlt { position: absolute; inset: 0; opacity: 0; }
+.card:hover .img { opacity: 0; transform: scale(1.04); }
+.card:hover .imgAlt { opacity: 1; transform: scale(1.04); }
+
+.badge { position: absolute; top: $space-4; left: $space-4; background: $cream-white; color: $text-dark; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; padding: 6px 12px; font-weight: 500; z-index: 2; }
+.badgeSale { background: $earth-brown; color: $cream-white; }
+
+.actions { position: absolute; top: $space-4; right: $space-4; display: flex; flex-direction: column; gap: $space-2; z-index: 2; opacity: 0; transform: translateX(8px); transition: all $dur-med $ease-luxe; }
+.card:hover .actions { opacity: 1; transform: translateX(0); }
+.iconBtn { width: 40px; height: 40px; background: $cream-white; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; color: $text-dark; transition: all $dur-fast; box-shadow: $shadow-sm; &:hover { background: $text-dark; color: $cream-white; } &.active { background: $earth-brown; color: $cream-white; } }
+
+.quickAdd { position: absolute; bottom: 0; left: 0; right: 0; background: $text-dark; color: $cream-white; padding: 14px; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; text-align: center; transform: translateY(100%); transition: transform $dur-med $ease-luxe; z-index: 2; font-weight: 500; &:hover { background: $earth-brown; } }
+.card:hover .quickAdd { transform: translateY(0); }
+
+.info { text-align: left; }
+.name { font-family: $font-serif; font-size: 18px; color: $text-dark; margin-bottom: 4px; transition: color $dur-fast; }
+.card:hover .name { color: $earth-brown; }
+.cat { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: $text-muted; margin-bottom: 6px; }
+.price { font-family: $font-sans; font-size: 15px; color: $text-dark; font-weight: 500; .old { color: $text-muted; text-decoration: line-through; margin-left: 8px; font-weight: 400; font-size: 13px; } }

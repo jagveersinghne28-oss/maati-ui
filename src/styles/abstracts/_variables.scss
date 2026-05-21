@@ -1,0 +1,61 @@
+// Maati — Luxury Ceramic Brand Tokens
+
+// Colors
+$clay-beige: #D9C2A7;
+$earth-brown: #8B6B4A;
+$earth-brown-deep: #6B4F33;
+$cream-white: #F8F5F1;
+$soft-sand: #EEE5DA;
+$text-dark: #1C1C1C;
+$text-muted: #666666;
+$border: #EAEAEA;
+$white: #FFFFFF;
+$black: #000000;
+$success: #4F7A52;
+$danger: #B23A3A;
+$gold: #B8965A;
+
+// Typography
+$font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+$font-sans: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+
+// Spacing scale (luxury — generous)
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 12px;
+$space-4: 16px;
+$space-5: 24px;
+$space-6: 32px;
+$space-7: 48px;
+$space-8: 64px;
+$space-9: 96px;
+$space-10: 128px;
+
+// Containers
+$container-max: 1440px;
+$container-pad: 32px;
+$container-pad-mobile: 20px;
+
+// Radii
+$radius-sm: 2px;
+$radius-md: 4px;
+$radius-lg: 8px;
+$radius-pill: 999px;
+
+// Transitions
+$ease-luxe: cubic-bezier(0.65, 0, 0.35, 1);
+$ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+$dur-fast: 200ms;
+$dur-med: 400ms;
+$dur-slow: 700ms;
+
+// Z-index
+$z-nav: 100;
+$z-drawer: 200;
+$z-modal: 300;
+$z-toast: 400;
+
+// Shadows (soft, earthy)
+$shadow-sm: 0 2px 8px rgba(28, 28, 28, 0.04);
+$shadow-md: 0 8px 32px rgba(28, 28, 28, 0.08);
+$shadow-lg: 0 24px 64px rgba(28, 28, 28, 0.12);

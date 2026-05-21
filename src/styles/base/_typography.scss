@@ -1,0 +1,30 @@
+@use '../abstracts/variables' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap');
+
+body {
+  font-family: $font-sans;
+  font-size: 15px;
+  line-height: 1.7;
+  color: $text-dark;
+  background: $cream-white;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: $font-serif;
+  font-weight: 400;
+  color: $text-dark;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(40px, 6vw, 84px); }
+h2 { font-size: clamp(32px, 4.2vw, 56px); }
+h3 { font-size: clamp(24px, 2.6vw, 36px); }
+h4 { font-size: 22px; }
+h5 { font-size: 18px; }
+
+p { color: $text-muted; }
+
+::selection { background: $clay-beige; color: $text-dark; }

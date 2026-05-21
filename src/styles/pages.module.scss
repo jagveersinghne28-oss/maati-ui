@@ -1,0 +1,226 @@
+@use '../styles/abstracts/variables' as *;
+@use '../styles/abstracts/mixins' as *;
+@use '../styles/abstracts/breakpoints' as *;
+
+.page { padding-top: $space-7; padding-bottom: $space-9; @include container; }
+.crumb { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: $text-muted; margin-bottom: $space-5;
+  a { color: $text-muted; transition: color $dur-fast; &:hover { color: $earth-brown; } }
+}
+.pageHead { text-align: center; margin-bottom: $space-7;
+  .eyebrow { @include eyebrow; margin-bottom: $space-3; }
+  h1 { font-size: clamp(40px, 5vw, 64px); margin-bottom: $space-3; }
+  p { max-width: 540px; margin: 0 auto; }
+}
+
+// Collections index — categories grid
+.cats { display: grid; grid-template-columns: repeat(2, 1fr); gap: $space-5;
+  @include mobile { grid-template-columns: 1fr; gap: $space-4; }
+}
+.catCard { display: block; position: relative; aspect-ratio: 4/3; overflow: hidden; @include image-zoom;
+  img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  &::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, rgba(28,28,28,0.78) 100%); z-index: 1; }
+  .label { position: absolute; bottom: 0; left: 0; right: 0; padding: $space-6; color: $cream-white; z-index: 2; display: flex; flex-direction: column; gap: $space-2;
+    @include mobile { padding: $space-5; }
+    h3 { color: $cream-white; margin: 0; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; }
+    p { color: rgba(248, 245, 241, 0.85); margin: 0; font-size: 14px; line-height: 1.5; max-width: 46ch; }
+    span { display: inline-block; margin-top: $space-2; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: $clay-beige; }
+  }
+}
+
+// PLP
+.plp { display: grid; grid-template-columns: 240px 1fr; gap: $space-6;
+  @include down($bp-lg) { grid-template-columns: 1fr; }
+}
+.filters { position: sticky; top: 110px; align-self: start;
+  @include down($bp-lg) { position: static; }
+  h5 { @include eyebrow; margin-bottom: $space-4; }
+  .group { padding-bottom: $space-5; margin-bottom: $space-5; border-bottom: 1px solid $border; }
+  label { display: flex; align-items: center; gap: 10px; padding: 6px 0; font-size: 14px; cursor: pointer; color: $text-dark; &:hover { color: $earth-brown; } }
+}
+.plpHead { display: flex; justify-content: space-between; align-items: center; margin-bottom: $space-5; padding-bottom: $space-4; border-bottom: 1px solid $border;
+  .count { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: $text-muted; }
+}
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: $space-5 $space-4;
+  @include down($bp-md) { grid-template-columns: repeat(2, 1fr); }
+}
+
+// PDP
+.pdp { display: grid; grid-template-columns: 1.2fr 1fr; gap: $space-7;
+  @include down($bp-lg) { grid-template-columns: 1fr; }
+}
+.gallery { display: grid; grid-template-columns: 90px 1fr; gap: $space-3;
+  @include down($bp-md) { grid-template-columns: 1fr; }
+}
+.thumbs { display: flex; flex-direction: column; gap: 10px;
+  @include down($bp-md) { flex-direction: row; }
+  button { aspect-ratio: 1/1; overflow: hidden; border: 1px solid transparent; opacity: 0.6; transition: all $dur-fast;
+    &.active { border-color: $text-dark; opacity: 1; }
+    &:hover { opacity: 1; }
+    img { width: 100%; height: 100%; object-fit: cover; }
+  }
+}
+.mainImg { aspect-ratio: 4/5; overflow: hidden; background: $soft-sand;
+  img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s $ease-luxe; cursor: zoom-in; &:hover { transform: scale(1.2); } }
+}
+.details {
+  .cat { @include eyebrow; margin-bottom: $space-3; }
+  h1 { font-size: clamp(32px, 4vw, 48px); margin-bottom: $space-4; }
+  .price { font-size: 24px; font-family: $font-serif; margin-bottom: $space-5; .old { color: $text-muted; text-decoration: line-through; font-size: 18px; margin-left: 10px; } }
+  .desc { margin-bottom: $space-5; line-height: 1.85; font-size: 16px; }
+}
+.qtyRow { display: flex; gap: $space-3; margin-bottom: $space-4; align-items: stretch; }
+.qty { display: inline-flex; align-items: center; border: 1px solid $text-dark;
+  button { width: 48px; height: 48px; &:hover { background: $soft-sand; } }
+  span { width: 48px; text-align: center; }
+}
+.btnPrimary { @include btn-luxury; flex: 1; }
+.btnBuy { @include btn-outline; width: 100%; margin-bottom: $space-5; }
+.specs { border-top: 1px solid $border; padding-top: $space-5;
+  h5 { @include eyebrow; margin-bottom: $space-3; }
+  dl { display: grid; grid-template-columns: 1fr 2fr; gap: 10px 16px; font-size: 14px;
+    dt { color: $text-muted; }
+    dd { color: $text-dark; }
+  }
+}
+.related { margin-top: $space-9; }
+
+// Cart page
+.cartPage { display: grid; grid-template-columns: 1.6fr 1fr; gap: $space-7;
+  @include down($bp-lg) { grid-template-columns: 1fr; }
+}
+.cartTable { width: 100%; border-collapse: collapse;
+  th { text-align: left; padding: 14px 0; @include eyebrow; border-bottom: 1px solid $border; }
+  td { padding: $space-5 0; border-bottom: 1px solid $border; vertical-align: middle; }
+  .cellProd { display: flex; gap: $space-4; align-items: center; img { width: 80px; aspect-ratio: 4/5; object-fit: cover; } h5 { font-family: $font-serif; font-size: 18px; font-weight: 500; } small { color: $text-muted; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; } }
+}
+.summary { background: $soft-sand; padding: $space-6; align-self: start; position: sticky; top: 110px;
+  h4 { @include eyebrow; margin-bottom: $space-5; }
+  .row { display: flex; justify-content: space-between; padding: 10px 0; font-size: 14px; color: $text-muted; }
+  .total { display: flex; justify-content: space-between; padding-top: $space-4; border-top: 1px solid $border; font-family: $font-serif; font-size: 22px; color: $text-dark; margin-bottom: $space-5; }
+  .promo { display: flex; gap: 0; margin-bottom: $space-5; border: 1px solid $text-dark;
+    input { flex: 1; background: transparent; border: 0; padding: 12px 16px; outline: none; font-size: 13px; }
+    button { padding: 0 18px; background: $text-dark; color: $cream-white; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; }
+  }
+  .btn { @include btn-luxury; width: 100%; }
+}
+
+// Checkout
+.checkout { display: grid; grid-template-columns: 1.4fr 1fr; gap: $space-7;
+  @include down($bp-lg) { grid-template-columns: 1fr; }
+}
+.steps { display: flex; gap: $space-3; margin-bottom: $space-6;
+  .step { flex: 1; padding: 16px 0; text-align: center; border-bottom: 2px solid $border; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: $text-muted; font-weight: 500;
+    &.active { border-color: $text-dark; color: $text-dark; }
+  }
+}
+.formGrid { display: grid; grid-template-columns: 1fr 1fr; gap: $space-4;
+  @include mobile { grid-template-columns: 1fr; }
+  .full { grid-column: 1 / -1; }
+}
+.payMethods { display: grid; gap: 12px; margin-bottom: $space-5;
+  label { display: flex; align-items: center; gap: $space-3; padding: 18px $space-4; border: 1px solid $border; cursor: pointer; transition: all $dur-fast;
+    &:hover { border-color: $text-dark; }
+    &.sel { border-color: $text-dark; background: $soft-sand; }
+    .pay-icon { width: 40px; height: 28px; background: $soft-sand; display: inline-flex; align-items: center; justify-content: center; font-size: 10px; letter-spacing: 0.12em; font-weight: 600; }
+  }
+}
+
+// Auth
+.auth { min-height: 80vh; display: flex; align-items: center; justify-content: center; padding: $space-7 $space-5; background: $soft-sand; }
+.authCard { width: 100%; max-width: 440px; background: $cream-white; padding: $space-7;
+  @include mobile { padding: $space-6 $space-5; }
+  .head { text-align: center; margin-bottom: $space-6;
+    .eyebrow { @include eyebrow; margin-bottom: $space-3; }
+    h2 { font-size: 32px; }
+  }
+  .field { margin-bottom: $space-4; label { display: block; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: $text-muted; margin-bottom: 8px; } }
+  .btn { @include btn-luxury; width: 100%; margin-top: $space-3; }
+  .alt { text-align: center; margin-top: $space-5; font-size: 13px; color: $text-muted; a { color: $earth-brown; text-decoration: underline; } }
+}
+
+// Account
+.acc { display: grid; grid-template-columns: 240px 1fr; gap: $space-6;
+  @include down($bp-md) { grid-template-columns: 1fr; }
+}
+.accNav { align-self: start;
+  h4 { @include eyebrow; margin-bottom: $space-4; }
+  a, button { display: block; padding: 12px 0; font-size: 14px; color: $text-dark; border-bottom: 1px solid $border; transition: color $dur-fast; width: 100%; text-align: left;
+    &:hover, &.active { color: $earth-brown; }
+  }
+}
+.accPanel { background: $soft-sand; padding: $space-6;
+  h3 { font-size: 28px; margin-bottom: $space-5; }
+}
+
+// Wishlist empty
+.empty { text-align: center; padding: $space-9 $space-5;
+  h3 { margin-bottom: $space-3; }
+  p { margin-bottom: $space-5; }
+}
+
+// About hero
+.aboutHero { aspect-ratio: 16/8; position: relative; overflow: hidden; margin-bottom: $space-9;
+  @include mobile { aspect-ratio: 4/5; }
+  img { width: 100%; height: 100%; object-fit: cover; }
+  &::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(28,28,28,0.6)); }
+  .label { position: absolute; bottom: $space-8; left: 0; right: 0; @include container; color: $cream-white; z-index: 2;
+    .eyebrow { @include eyebrow; color: $clay-beige; margin-bottom: $space-3; }
+    h1 { color: $cream-white; max-width: 14ch; }
+  }
+}
+.aboutSection { @include container; margin-bottom: $space-9; }
+.aboutTwo { display: grid; grid-template-columns: 1fr 1fr; gap: $space-7; align-items: center;
+  @include down($bp-lg) { grid-template-columns: 1fr; }
+  .img { aspect-ratio: 4/5; overflow: hidden; @include image-zoom; img { width: 100%; height: 100%; object-fit: cover; } }
+  .eyebrow { @include eyebrow; margin-bottom: $space-3; }
+  h2 { margin-bottom: $space-4; }
+  p { margin-bottom: $space-3; font-size: 17px; line-height: 1.85; }
+}
+.founders { display: grid; grid-template-columns: repeat(3, 1fr); gap: $space-5;
+  @include mobile { grid-template-columns: 1fr; }
+}
+.founder { text-align: center;
+  .ring { aspect-ratio: 1/1; border-radius: 999px; overflow: hidden; background: $soft-sand; margin-bottom: $space-4; img { width: 100%; height: 100%; object-fit: cover; } }
+  h4 { font-family: $font-serif; font-size: 24px; margin-bottom: 6px; }
+  span { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: $earth-brown; }
+}
+.values { display: grid; grid-template-columns: repeat(3, 1fr); gap: $space-5;
+  @include mobile { grid-template-columns: 1fr; }
+}
+.value { padding: $space-6 $space-5; background: $soft-sand; text-align: center;
+  .num { font-family: $font-serif; font-size: 56px; color: $earth-brown; margin-bottom: $space-3; }
+  h4 { margin-bottom: $space-3; }
+  p { font-size: 14px; }
+}
+.gallery2 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
+  @include mobile { grid-template-columns: repeat(2, 1fr); }
+  .item { aspect-ratio: 1/1; @include image-zoom; img { width: 100%; height: 100%; object-fit: cover; } }
+}
+
+// Contact
+.contact { display: grid; grid-template-columns: 1fr 1.4fr; gap: $space-7;
+  @include down($bp-lg) { grid-template-columns: 1fr; }
+}
+.contactInfo {
+  .eyebrow { @include eyebrow; margin-bottom: $space-3; }
+  h2 { margin-bottom: $space-4; }
+  p { margin-bottom: $space-5; }
+  .block { padding: $space-4 0; border-top: 1px solid $border;
+    h5 { @include eyebrow; margin-bottom: 8px; color: $text-dark; }
+    p, a { font-family: $font-serif; font-size: 22px; color: $text-dark; }
+  }
+  .social { display: flex; gap: $space-4; margin-top: $space-4;
+    a { font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: $earth-brown; }
+  }
+}
+.contactForm { padding: $space-6; background: $soft-sand;
+  h3 { font-size: 28px; margin-bottom: $space-5; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: $space-4;
+    @include mobile { grid-template-columns: 1fr; }
+    .full { grid-column: 1 / -1; }
+  }
+  .btn { @include btn-luxury; width: 100%; margin-top: $space-4; }
+}
+.map { margin-top: $space-7; aspect-ratio: 21/9; @include mobile { aspect-ratio: 4/3; }
+  iframe { width: 100%; height: 100%; border: 0; filter: grayscale(0.4); }
+}

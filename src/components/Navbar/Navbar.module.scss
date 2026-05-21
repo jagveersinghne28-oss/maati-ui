@@ -1,0 +1,144 @@
+@use '../../styles/abstracts/variables' as *;
+@use '../../styles/abstracts/mixins' as *;
+@use '../../styles/abstracts/breakpoints' as *;
+
+.bar {
+  background: $text-dark;
+  color: $cream-white;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 10px $space-5;
+  text-align: center;
+  font-weight: 400;
+  position: relative;
+  z-index: $z-nav + 1;
+  span { opacity: 0.85; }
+}
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: $z-nav;
+  background: rgba(248, 245, 241, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(234, 234, 234, 0.6);
+  transition: all $dur-med $ease-luxe;
+}
+
+.inner {
+  @include container;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  height: 84px;
+  @include mobile { height: 64px; }
+}
+
+.left, .right {
+  display: flex;
+  align-items: center;
+  gap: $space-6;
+}
+.right { justify-content: flex-end; gap: $space-5; }
+
+.logo {
+  font-family: $font-serif;
+  font-size: 32px;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+  color: $text-dark;
+  text-align: center;
+  text-transform: uppercase;
+  @include mobile { font-size: 24px; }
+}
+.logo small { display: block; font-family: $font-sans; font-size: 9px; letter-spacing: 0.4em; color: $earth-brown; margin-top: 2px; font-weight: 400; }
+
+.link {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $text-dark;
+  font-weight: 500;
+  position: relative;
+  padding: 8px 0;
+  cursor: pointer;
+  transition: color $dur-fast $ease-luxe;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: $earth-brown;
+    transition: width $dur-med $ease-luxe;
+  }
+  &:hover { color: $earth-brown; }
+  &:hover::after, &.active::after { width: 100%; }
+  @include down($bp-lg) { display: none; }
+}
+
+.iconBtn {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-dark;
+  position: relative;
+  transition: color $dur-fast;
+  &:hover { color: $earth-brown; }
+}
+.badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: $earth-brown;
+  color: $cream-white;
+  font-size: 10px;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  font-weight: 600;
+}
+
+.burger { display: none; @include down($bp-lg) { display: inline-flex; } }
+.desktopOnly { @include down($bp-lg) { display: none; } }
+
+// Mega menu
+.mega {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: $cream-white;
+  border-top: 1px solid $border;
+  padding: $space-7 0 $space-8;
+  box-shadow: $shadow-md;
+}
+.megaGrid {
+  @include container;
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  gap: $space-8;
+}
+.megaCol h5 { @include eyebrow; margin-bottom: $space-5; color: $earth-brown; }
+.megaCol a { display: block; padding: 8px 0; font-size: 16px; font-family: $font-serif; color: $text-dark; transition: color $dur-fast; &:hover { color: $earth-brown; } }
+.megaFeature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-5;
+  .card {
+    @include image-zoom;
+    aspect-ratio: 4/5;
+    position: relative;
+    img { width: 100%; height: 100%; object-fit: cover; }
+    span { position: absolute; bottom: $space-4; left: $space-4; background: $cream-white; padding: 8px 16px; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; }
+  }
+}

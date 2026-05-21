@@ -1,0 +1,28 @@
+@use '../../styles/abstracts/variables' as *;
+@use '../../styles/abstracts/mixins' as *;
+@use '../../styles/abstracts/breakpoints' as *;
+
+.footer {
+  background: $text-dark;
+  color: $cream-white;
+  padding: $space-9 0 $space-5;
+  margin-top: $space-9;
+}
+.top { @include container; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: $space-7; padding-bottom: $space-8;
+  @include down($bp-lg) { grid-template-columns: 1fr 1fr; }
+  @include mobile { grid-template-columns: 1fr; gap: $space-6; }
+}
+.brand h3 { font-family: $font-serif; font-size: 40px; color: $cream-white; letter-spacing: 0.08em; margin-bottom: $space-3; }
+.brand p { color: rgba(248, 245, 241, 0.7); max-width: 360px; }
+.brand small { display: block; margin-top: $space-4; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: $clay-beige; }
+
+.col h5 { @include eyebrow; color: $clay-beige; margin-bottom: $space-5; }
+.col a, .col p { display: block; padding: 6px 0; color: rgba(248, 245, 241, 0.75); transition: color $dur-fast; font-size: 14px; }
+.col a:hover { color: $clay-beige; }
+
+.news { display: flex; gap: 0; margin-top: $space-3; border: 1px solid rgba(248, 245, 241, 0.2); }
+.news input { flex: 1; background: transparent; border: 0; padding: 14px 16px; color: $cream-white; font-size: 13px; outline: none; &::placeholder { color: rgba(248, 245, 241, 0.5); } }
+.news button { padding: 0 22px; background: $clay-beige; color: $text-dark; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; transition: background $dur-fast; &:hover { background: $cream-white; } }
+
+.bottom { @include container; border-top: 1px solid rgba(248, 245, 241, 0.1); padding-top: $space-5; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: $space-4; font-size: 12px; color: rgba(248, 245, 241, 0.6); letter-spacing: 0.06em; }
+.social { display: flex; gap: $space-4; a { color: $clay-beige; font-size: 14px; letter-spacing: 0.2em; text-transform: uppercase; transition: color $dur-fast; &:hover { color: $cream-white; } } }
