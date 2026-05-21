@@ -60,7 +60,7 @@ export default function Contact() {
         </motion.div>
       </div>
       <div className={s.map}>
-        <iframe title="Maati Studio Location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.354!2d77.5945627!3d28.6139391!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x52c2b7494e204dce!2sIndia!5e0!3m2!1sen!2sin!4v1700000000000" loading="lazy" allowFullScreen referrerPolicy="no-referrer-when-downgrade" />
+        <iframe title="Maati Studio Location" src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1754.6249877568591!2d77.83431124665569!3d28.41171313298565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjjCsDI0JzQyLjIiTiA3N8KwNTAnMDcuNyJF!5e0!3m2!1sen!2sin!4v1779366215705!5m2!1sen!2sin" loading="lazy" allowFullScreen referrerPolicy="no-referrer-when-downgrade" />
       </div>
     </div>
   );
