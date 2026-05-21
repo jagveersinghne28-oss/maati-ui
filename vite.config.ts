@@ -8,6 +8,7 @@ export default defineConfig({
     port: 8080,
   },
   build: {
+    outDir: 'build',
     rollupOptions: {
       output: {
         manualChunks: {
